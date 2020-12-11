@@ -8,15 +8,14 @@ import ContactList from './Components/ContactList';
 
 class App extends Component {
   state = {
-    contacts: [{'name': 'Darya'}, {'name': "Mango"}],
+    contacts: [],
     name: ''
   }
 
-  onSubmitHandle = (name) => {
-   console.log(666);
-   let contacts = this.state.contacts;
-   contacts.push({name: name})
-   this.setState({['contacts']: contacts})
+  onSubmitHandle = (name, id) => {
+   let newContacts = this.state.contacts;
+   newContacts.push({name: name, id: id})
+   this.setState({['contacts']: newContacts})
   }
 
 

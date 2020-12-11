@@ -1,12 +1,7 @@
 import s from './PhoneBook.module.css';
 import { Component } from 'react';
 
-import { v1 as uuidv1 } from 'uuid';
-
-
-
-
-class Form extends Component {
+export default class InputNumber extends Component {
     state = {
         name: ''
       }
@@ -14,7 +9,9 @@ class Form extends Component {
     
     onSubmit = (e) => {
         e.preventDefault();
-        this.props.onSubmitHandle(this.state.name, uuidv1())
+        console.log('hhhh');
+        this.props.onSubmitHandle(this.state.name)
+
     }
 
     inputHandler = (e) => {
@@ -46,6 +43,3 @@ class Form extends Component {
         )
     }
 }
-
-    
-export default Form;
