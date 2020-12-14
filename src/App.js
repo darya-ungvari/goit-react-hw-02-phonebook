@@ -20,6 +20,10 @@ class App extends Component {
     number: ''
   }
 
+  filteredContacts = () => {
+    return this.state.contacts.filter((contact) => contact.name.toLowerCase().includes(this.state.filter.toLowerCase())) 
+   }
+
   // ф-ция, срабатывает на инпуте фильтра
   changeFilter = e => {
     // в стейт записывается текущее значение из формы
@@ -44,8 +48,8 @@ class App extends Component {
     return (  
       <div>
         <Form  addNewContact={this.addNewContact}></Form>
-        <ContactList contacts={this.state.contacts}></ContactList>
-        <Filter onChange={this.changeFilter}></Filter>
+        <Filter  onChange={this.changeFilter}></Filter>
+        <ContactList contacts={this.filteredContacts()}></ContactList>
       </div>
     );
   }
