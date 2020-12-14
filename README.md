@@ -1,3 +1,65 @@
+# goit-react-hw-01-components
+
+1. npx create-react-app my-app
+2. cd my-app
+3. npm start
+
+4. добавляем хаски, линтер и приттиер
+   npm install --save-dev prettier husky lint-staged
+
+5. Ссылки на документацию по интеграции плагинов в популярные редакторы.
+
+Prettier editor integration
+ESLint editor integration
+Настройки VSCode
+Для комфортной работы, после установки плагинов, нужно добавить несколько настроек редактора для автосохранения и форматирования файлов.
+
+{
+"files.autoSave": "onFocusChange",
+"editor.formatOnSave": true,
+"editor.codeActionsOnSave": {
+"source.fixAll.eslint": true
+}
+}
+
+6. ABsolute import:
+   create file "jsconfig.json"
+   in file: {
+   "compilerOptions": {
+   "baseUrl": "src"
+   },
+   "include": ["src"]
+   }
+
+7. in file index.css:
+   @import-normalize; /_ bring in normalize.css styles _/
+
+or
+
+use modern-normalize:
+in file index.js
+@import 'modern-normalize/modern-normalize.css';
+npm install modern-normalize
+
+8. sass(!!only fo mixins, pleceholders etc):
+   npm install node-sass -save
+
+DEPLOY
+
+1. npm run build
+2. in package.json add:
+   "homepage": "https://darya-ungvari/github.io/goit-react-hw-01-components",
+3. npm run build
+4. npm install --save gh-pages
+5. Add the following scripts in your package.json:
+
+"scripts": {
+"predeploy": "npm run build",
+"deploy": "gh-pages -d build",
+}
+
+7. npm run deploy
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
