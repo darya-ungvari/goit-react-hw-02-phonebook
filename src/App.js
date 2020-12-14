@@ -1,6 +1,7 @@
 import './App.css';
 import { Component } from 'react';
 import Form from './Components/Form';
+import ContactList from './Components/ContactList';
 import Filter from './Components/Filter';
 
 // import FeedbackCounter from './Components/Feedbacks/FeedbackCounter';
@@ -18,20 +19,14 @@ class App extends Component {
     name: '',
     number: ''
   }
- 
+
   // ф-ция, срабатывает на инпуте фильтра
   changeFilter = e => {
     // в стейт записывается текущее значение из формы
     this.setState({ filter: e.currentTarget.value });
   };
 
-  filteredContacts = () => {
-   return this.state.contacts.filter((contact) => contact.name.toLowerCase().includes(this.state.filter.toLowerCase())) 
-  }
-
   addNewContact = (contact) => {
-    
-
     // обьявлена переменная - копия старого массива - куда записываеться новый массив
    let newContacts = this.state.contacts;
   //  в новый массив записываеться новый обьект с ключами нейм и айди
@@ -40,13 +35,8 @@ class App extends Component {
   this.setState({['contacts']: newContacts})
 
   // или распыляем в старый-новый массив
-  // this.setState({['contacts']: [...this.state.contacts, contact]})
+  // this.setState({['contacts']: [...this.state.contacts, contact]}) 
 
-  // if (newContacts.includes(contact)) {
-  //   alert('hhh')
-  // } else {
-  //   newContacts.push(contact)
-  // }
   }
 
 
@@ -54,7 +44,8 @@ class App extends Component {
     return (  
       <div>
         <Form  addNewContact={this.addNewContact}></Form>
-        <Filter contacts={this.filteredContacts()} onChange={this.changeFilter}></Filter>
+        <ContactList contacts={this.state.contacts}></ContactList>
+        <Filter onChange={this.changeFilter}></Filter>
       </div>
     );
   }
