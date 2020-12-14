@@ -1,11 +1,9 @@
 import './App.css';
+import s from './Components/PhoneBook.module.css'
 import { Component } from 'react';
 import Form from './Components/Form';
 import ContactList from './Components/ContactList';
 import Filter from './Components/Filter';
-
-// import FeedbackCounter from './Components/Feedbacks/FeedbackCounter';
-
 
 class App extends Component {
   state = {
@@ -15,9 +13,7 @@ class App extends Component {
       {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
       {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
     ],
-    filter: '',
-    name: '',
-    number: ''
+    filter: ''
   }
 
   filteredContacts = () => {
@@ -47,7 +43,9 @@ class App extends Component {
   render() {
     return (  
       <div>
+        <h1>PhoneBook</h1>
         <Form  addNewContact={this.addNewContact}></Form>
+        <h2 className={s.title}>Contacts</h2>
         <Filter  onChange={this.changeFilter}></Filter>
         <ContactList contacts={this.filteredContacts()}></ContactList>
       </div>

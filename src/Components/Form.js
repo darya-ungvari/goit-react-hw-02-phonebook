@@ -38,7 +38,6 @@ class Form extends Component {
     render() {
         return (
         <div className={s.container}> 
-            <h1>PhoneBook</h1>
 {/* присабмите формы вызывается ф-ия .onSubmit */}
             <form onSubmit={this.onSubmit}>
                 <h2>Name</h2>
