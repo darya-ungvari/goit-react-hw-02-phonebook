@@ -32,6 +32,20 @@ class App extends Component {
     //  contact.name === this.state.name
   }
 
+  deleteContact = (id) => {
+    // обьявлена переменная, в которой сравниваются айдишники
+    let deletedContact = this.state.contacts.find(i => i.id === id);
+
+    //в переменную индекс записываеться индекс удаляемого элемента
+     let index = this.state.contacts.indexOf(deletedContact)
+
+    // обьявлена переменная - копия старого массива - куда записываеться новый массив
+   let updateContacts = this.state.contacts;
+   //  в новый массив записываеться новый обьект с ключами нейм и айди
+    updateContacts.splice(index, 1)
+   //  обновляеться старый массив
+   this.setState({['contacts']: updateContacts})
+  }
 
   addNewContact = (contact) => {
 
@@ -59,7 +73,7 @@ class App extends Component {
         <Form  addNewContact={this.addNewContact}></Form>
         <h2 className={s.title}>Contacts</h2>
         <Filter  onChange={this.changeFilter}></Filter>
-        <ContactList contacts={this.filteredContacts()}></ContactList>
+        <ContactList onDelete={this.deleteContact} contacts={this.filteredContacts()}></ContactList>
       </div>
     );
   }

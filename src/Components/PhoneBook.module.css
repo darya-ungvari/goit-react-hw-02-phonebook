@@ -37,3 +37,7 @@
 .title {
   text-align: center;
 }
+
+.deleteBtn {
+  margin-left: 20px;
+}

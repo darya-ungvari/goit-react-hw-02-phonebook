@@ -1,6 +1,7 @@
 import s from './PhoneBook.module.css';
 import { Component } from 'react';
 
+// для генерациия уникальных айдишников
 import { v1 as uuidv1 } from 'uuid';
 
 
