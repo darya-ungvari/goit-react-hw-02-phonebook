@@ -26,7 +26,19 @@ class App extends Component {
     this.setState({ filter: e.currentTarget.value });
   };
 
+  invalidParams = (contact) => {
+    let existedContact = this.state.contacts.find(i => i.name === contact.name);
+    return existedContact ? true : false;
+    //  contact.name === this.state.name
+  }
+
+
   addNewContact = (contact) => {
+
+    if (this.invalidParams(contact)) {
+      alert(`${contact.name} already exist`)
+      return 
+    }
     // обьявлена переменная - копия старого массива - куда записываеться новый массив
    let newContacts = this.state.contacts;
   //  в новый массив записываеться новый обьект с ключами нейм и айди
@@ -43,7 +55,7 @@ class App extends Component {
   render() {
     return (  
       <div>
-        <h1>PhoneBook</h1>
+        <h1 className={s.title}>PhoneBook</h1>
         <Form  addNewContact={this.addNewContact}></Form>
         <h2 className={s.title}>Contacts</h2>
         <Filter  onChange={this.changeFilter}></Filter>
