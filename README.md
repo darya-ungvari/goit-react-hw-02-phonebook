@@ -48,7 +48,7 @@ DEPLOY
 
 1. npm run build
 2. in package.json add:
-   "homepage": "https://darya-ungvari/github.io/goit-react-hw-01-components",
+   "homepage": "https://darya-ungvari.github.io/goit-react-hw-01-components",
 3. npm run build
 4. npm install --save gh-pages
 5. Add the following scripts in your package.json:
