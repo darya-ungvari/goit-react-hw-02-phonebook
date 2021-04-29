@@ -1,25 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Form from './Components/Form/Form';
+import ContactList from './Components/ContactList/ContactList'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    contacts: [],
+    name: ''
+  }
+
+  
+
+
+  onFormSubmit = (contact) => {
+    console.log(contact);
+    this.setState({ contacts: [...this.state.contacts, contact]})
 }
+
+  render() { 
+    return(
+      <>
+        <Form onFormSubmit={this.onFormSubmit}></Form>
+        <ContactList 
+          contactsArray={this.state.contacts}
+        ></ContactList>
+
+
+      
+      
+      </>
+    )
+  }
+}
+
 
 export default App;
