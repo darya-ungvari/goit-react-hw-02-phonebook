@@ -10,17 +10,18 @@ class Form extends React.Component {
     
     onNameChange = e => {
         this.setState({ name: e.target.value });
-        console.log(e.target.value);
       }
 
       onNumberChange = (e) => {
           this.setState({ number: e.target.value });
-          console.log(this.state.number);
       }
 
     localSubmit = (e) => {
         e.preventDefault()
         this.props.onFormSubmit({ id: uuidv4(), name: this.state.name, number: this.state.number })
+        setTimeout(() => {
+            this.setState({name: '', number: ''});
+        }, 2000);
     }
     
     render() {
@@ -30,6 +31,7 @@ class Form extends React.Component {
                     <p>Name</p>
                     <input
                         onChange={this.onNameChange}
+                        value={this.state.name}
                         className=''
                         type="text"
                         name="name"
@@ -41,6 +43,7 @@ class Form extends React.Component {
                     <p>Phone</p>
                     <input
                         onChange={this.onNumberChange}
+                        value={this.state.number}
                         type="tel"
                         name="number"
                         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
