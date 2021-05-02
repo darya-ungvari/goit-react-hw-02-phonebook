@@ -1,6 +1,6 @@
 
 
-const ContactList = ({ contactsArray }) => {
+const ContactList = ({ contactsArray, deleteContact }) => {
 
 
     console.log(contactsArray);
@@ -8,7 +8,10 @@ const ContactList = ({ contactsArray }) => {
         
         <>
             <ul>
-                {contactsArray.map((contact) => <li key={contact.id}>{contact.name}</li>
+                {contactsArray.map((contact) => <li 
+                key={contact.id}>{contact.name} : {contact.number}
+                <button onClick={() => deleteContact(contact.id)}>Delete</button>
+                </li>
                 )}
             </ul>
         </>
