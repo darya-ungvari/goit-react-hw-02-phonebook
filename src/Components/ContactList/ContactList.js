@@ -1,4 +1,5 @@
-import s from './ContactList.module.css'
+import s from './ContactList.module.css';
+import PropTypes from 'prop-types';
 
 const ContactList = ({ contactsArray, deleteContact }) => {
 
@@ -20,5 +21,17 @@ const ContactList = ({ contactsArray, deleteContact }) => {
         </>
     )
 }
+
+ContactList.propTypes = {
+    contactsArray: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string,
+            name: PropTypes.string,
+            number: PropTypes.string,
+        })
+    ),
+    deleteContact: PropTypes.func,
+}
+
 
 export default ContactList;
