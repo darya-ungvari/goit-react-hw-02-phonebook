@@ -1,11 +1,10 @@
-
 // props -  object! {}
 // props.onChangeFilter
 const Filter = ({ onChangeFilter })  => {
     
 
     return(
-        <input onChange={onChangeFilter}></input>
+        <input  onChange={onChangeFilter}></input>
     )
 }
 

@@ -1,0 +1,19 @@
+.contact {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+}
+
+.button {
+  color: white;
+  background-color: teal;
+  border-radius: 3px;
+}
+
+.contactNumber {
+  margin-right: 10px;
+}

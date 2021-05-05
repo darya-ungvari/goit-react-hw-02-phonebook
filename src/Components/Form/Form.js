@@ -1,5 +1,6 @@
 import React from "react";
 import { v4 as uuidv4 } from 'uuid';
+import s from './Form.module.css'
 
 class Form extends React.Component {
     state = {
@@ -50,7 +51,7 @@ class Form extends React.Component {
                         required
                     />
                     <br></br>
-                    <button type="submit" >Add contact</button>
+                    <button className={s.button} type="submit" >Add contact</button>
                 </form>
             </>
         )

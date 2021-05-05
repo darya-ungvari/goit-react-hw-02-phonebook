@@ -1,4 +1,4 @@
-
+import s from './ContactList.module.css'
 
 const ContactList = ({ contactsArray, deleteContact }) => {
 
@@ -9,8 +9,11 @@ const ContactList = ({ contactsArray, deleteContact }) => {
         <>
             <ul>
                 {contactsArray.map((contact) => <li 
-                key={contact.id}>{contact.name} : {contact.number}
-                <button onClick={() => deleteContact(contact.id)}>Delete</button>
+                
+                key={contact.id}><span className={s.contact}>{contact.name}:</span> <span className={s.contactNumber}>{contact.number}</span>
+                <button
+                className={s.button} 
+                onClick={() => deleteContact(contact.id)}>Delete</button>
                 </li>
                 )}
             </ul>
